@@ -26,7 +26,7 @@ version/version.go:
 
 ${PREFIX}/bin/registry: version/version.go $(shell find . -type f -name '*.go')
 	@echo "+ $@"
-	@go build -tags "${DOCKER_BUILDTAGS}" -o $@ ${GO_LDFLAGS}  ${GO_GCFLAGS} ./cmd/registry
+	@go build -tags netgo -installsuffix netgo -tags "${DOCKER_BUILDTAGS}" -o $@ ${GO_LDFLAGS}  ${GO_GCFLAGS} ./cmd/registry
 
 ${PREFIX}/bin/registry-api-descriptor-template: version/version.go $(shell find . -type f -name '*.go')
 	@echo "+ $@"
