@@ -9,6 +9,6 @@ storage:
         rootdirectory: /var/lib/registry
     maintenance:
         uploadpurging:
-            enabled: true
+            enabled: false
 http:
     addr: :5000
