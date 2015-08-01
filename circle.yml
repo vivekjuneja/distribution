@@ -1,5 +1,7 @@
 # Pony-up!
 machine:
+  services:
+    - docker
   pre:
   # Install gvm
     - bash < <(curl -s -S -L https://raw.githubusercontent.com/moovweb/gvm/1.0.22/binscripts/gvm-installer)
@@ -100,6 +102,7 @@ test:
   # Test stable, and report
   # Preset the goverall report file
     - echo "$CIRCLE_PAIN" > ~/goverage.report
+    - cd contrib/docker-integration && ./run.sh
     - gvm use stable; go list ./... | xargs -L 1 -I{} rm -f $GOPATH/src/{}/coverage.out:
         pwd: $BASE_STABLE
     - gvm use stable; go list -tags "$DOCKER_BUILDTAGS" ./... | xargs -L 1 -I{} godep go test -tags "$DOCKER_BUILDTAGS" -test.short -coverprofile=$GOPATH/src/{}/coverage.out {}:
