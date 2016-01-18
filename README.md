@@ -7,6 +7,8 @@ for storing and distributing Docker images. It supersedes the [docker/docker-
 registry](https://github.com/docker/docker-registry) project with a new API
 design, focused around security and performance.
 
+**Changes are made specific to the support for a generic S3 Region. This can be used for any S3 API compatible Service like Minio.io**
+
 <img src="https://www.docker.com/sites/default/files/oyster-registry-3.png" width=200px/>
 
 This repository contains the following components:
